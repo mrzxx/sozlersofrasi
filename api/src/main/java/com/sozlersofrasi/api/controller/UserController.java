@@ -2,6 +2,7 @@ package com.sozlersofrasi.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,12 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<Result> get() {
+        Result result = new Result(501,"Message");
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/register")
